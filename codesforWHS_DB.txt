@@ -1,0 +1,40 @@
+CREATE DATABASE whs;
+
+USE uhs;
+
+CREATE TABLE doctor (
+  doctorID INTEGER NOT NULL,
+  fnamed VARCHAR(15) NOT NULL,
+  mnamed VARCHAR(15) NOT NULL,
+  lnamed VARCHAR(15) NOT NULL,
+  special varchar(20) not null,
+  PRIMARY KEY(doctorID)
+);
+
+CREATE TABLE Patient (
+  patientid varchar(30) PRIMARY KEY NOT NULL,
+  fnamep VARCHAR(15) NOT NULL,
+  mnamep VARCHAR(15) NOT NULL,
+  lnamep VARCHAR(15) NOT NULL,
+  Address VARCHAR(30) NOT NULL,
+  state varchar(15) NOT NULL,
+  city varchar(15) not null,
+  zipcode int not null,
+  Phone int NOT NULL,
+  InsuranceID INTEGER NOT NULL,
+  allergy varchar(30)
+);
+
+ CREATE TABLE Prescribes (
+       patientid varchar(30) NOT NULL,
+       doctorID VARCHAR(30) NOT NULL,
+       medication varchar(30) not null,
+       date DATE not null,
+       Dose VARCHAR(30) not null,
+       PRIMARY KEY(doctorID, patientid),
+       foreign key(doctorID) REFERENCES doctor(doctorID),
+       foreign key(patientid) REFERENCES Patient(patientid)
+     );
+
+insert into patient values('surya@69hotmail.com','surya','venkat','-','C 420 pdf apaprtments','maharashtra', 'mumbai',400069,9969000000,69420);
+insert into patient values('shrihari@420hotmail.com','shrihari','sudevan','-','A 69 tt apaprtments','maharashtra', 'thane',400420,9969420000,10001);
